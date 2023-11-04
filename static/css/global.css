@@ -1,0 +1,76 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+:root {
+    --corPrincipal: #f1eeec;
+    --corFonte: #000;
+    --corHover: #4c4b4b;
+    --fundoSite: #fff;
+
+    --respiro: 0 20vw;
+    --marginTop: 20px;
+}
+
+body {
+    background-color: var(--fundoSite);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#messages {
+    text-align: center;
+    list-style: none;
+    font-size: 20px;
+    margin-bottom: var(--marginTop);
+}
+
+header {
+    /*Display stuff*/
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /*Box model stuff*/
+    padding: var(--respiro);
+    height: 50px;
+    background-color: var(--corPrincipal);
+    /*Typography stuff*/
+    text-align: center;
+    color: var(--cor3);
+}
+
+    header i {
+        font-size: 20px;
+        color: var(--corFonte);
+    }
+
+    header .autenticar a {
+        color: var(--corFonte);
+        margin-left: 10px;
+    }
+
+main {
+    flex-grow: 1;
+    margin-top: var(--marginTop);
+    display: flex;
+    flex-direction: column;
+    padding: var(--respiro);
+}
+
+footer {
+    /*Display stuff*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--corPrincipal);
+}
+
+    footer p,
+    footer a {
+        color: var(--corFonte);
+        margin: 10px 0;
+        font-size: 18px;
+    }

@@ -1,20 +1,47 @@
 {% extends "base.html" %}
 
 {% block head %}
+<link rel="stylesheet" href="../static/css/index.css">
+<script>
+    function ajustarTamanho(textarea) {
+    textarea.style.height = 'auto';
+    textarea.style.height = textarea.scrollHeight + 'px';
+  }
+</script>
 {% endblock %}
 
 {% block main %}
-    <form action="/criar" method="post">
-        <input type="text" name="titulo" id="titulo" placeholder="Titulo *">
-        <input type="text" name="descricao" id="descricao" placeholder="Descricao">
-        <input type="submit" value="Enviar">
-    </form>
+<form action="/criar" method="post">
+    <h2>Adicionar Tarefa</h2>
+    <input required type="text" name="titulo" id="titulo" placeholder="Titulo">
+    <textarea required onkeyup="ajustarTamanho(this)" type="text" name="descricao" id="descricao" placeholder="Descricao"></textarea>
+    <input type="submit" value="Enviar">
+    </div>
+</form>
+<section class="tarefas">
     {% for item in lista %}
-    <p>{{ item.tar_titulo }}</p>
-    <p>{{ item.tar_descricao }}</p>
-    <p>{{ item.tar_data }}</p>
-    <p>{{ item.tar_status }}</p>
-    <a href="/excluir/{{ item.tar_id }}"><i class="fa-solid fa-trash"></i></a>
-    <a href="/editar/{{ item.tar_id }}"><i class="fa-solid fa-pen-to-square"></i></a>
+    <div class="bloco">
+        {% if item.tar_status == "Concluído" %}
+        <div class="blocoTarefas">
+            <h2 class="outline">{{ item.tar_titulo }}</h2>
+            <p class="outline">Descrição: {{ item.tar_descricao }}</p>
+            <p class="outline">Criado em: {{ item.tar_data.strftime('%d/%m/%Y') }}</p>
+            <p>{{ item.tar_status }}</p>
+        </div>
+        {% else %}
+        <div class="blocoTarefas">
+            <h2>{{ item.tar_titulo }}</h2>
+            <p>Descrição: {{ item.tar_descricao }}</p>
+            <p>Criado em: {{ item.tar_data.strftime('%d/%m/%Y') }}</p>
+            <p>{{ item.tar_status }}</p>
+        </div>
+        {% endif %}
+        <div class="blocoAcoes">
+            <a href="/excluir/{{ item.tar_id }}"><i class="fa-solid fa-trash"></i></a>
+            <a href="/editar/{{ item.tar_id }}"><i class="fa-solid fa-pen-to-square"></i></a>
+        </div>
+    </div>
     {% endfor %}
+</section>
+
 {% endblock %}

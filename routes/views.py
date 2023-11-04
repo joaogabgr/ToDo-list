@@ -12,7 +12,6 @@ def index():
     
 @app.route('/autenticar', methods=['GET'])
 def autenticar():
-    print(get_user())
     if get_user() != None:
         return redirect(url_for('index'))
     

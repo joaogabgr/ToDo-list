@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <script src="https://kit.fontawesome.com/c6d943c8a3.js" crossorigin="anonymous"></script>  
+    <title>ToDo list</title>
+    <script src="https://kit.fontawesome.com/c6d943c8a3.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../static/css/global.css">
+    <link rel="shortcut icon" href="../static/img/logo.svg" type="image/x-icon">
     {% block head %}
 
     {% endblock %}
 </head>
+
 <body>
     <header>
-        <i class="fa-solid fa-list"></i>
+        <a href="/"><i class="fa-solid fa-list"></i></a>
         <nav class="autenticar">
             {% if user == None %}
             <a href="/autenticar?q=login">Logar</a>
@@ -24,11 +28,11 @@
     <main>
         {% with messages = get_flashed_messages() %}
         {% if messages %}
-            <ul id="messages" class="list-unstyled">
+        <ul id="messages" class="list-unstyled">
             {% for message in messages %}
-                <li class="alert alert-success">{{ message }}</li>
+            <li class="alert alert-success">{{ message }}</li>
             {% endfor %}
-            </ul>
+        </ul>
         {% endif %}
         {% endwith %}
         {% block main %}
@@ -39,4 +43,5 @@
         <p>Desenvolvido por <a href="https://github.com/joaogabgr" target="_blank">João Gabriel</a></p>
     </footer>
 </body>
+
 </html>

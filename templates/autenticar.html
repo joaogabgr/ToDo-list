@@ -1,22 +1,31 @@
 {% extends "base.html" %}
 
 {% block head %}
+<link rel="stylesheet" href="../static/css/index.css">
 {% endblock %}
 
 {% block main %}
-    {% if action == 'login' %}
-    <form action="/autenticar?q=login" method="post">
-        <input type="email" name="email" placeholder="E-mail">
-        <input type="password" name="senha" placeholder="Senha">
-        <input type="submit" value="Logar">
-    </form>
-    {% elif action == 'cadastrar' %}
-    <form action="/autenticar?q=cadastrar" method="post">
-        <input type="text" name="nome" placeholder="Nome">
-        <input type="email" name="email" placeholder="E-mail">
-        <input type="password" name="senha" placeholder="Senha">
-        <input type="password" name="senhaConf" placeholder="Confirme a senha">
-        <input type="submit" value="Cadastrar">
-    </form>
-    {% endif %}
+{% if action == 'login' %}
+<form action="/autenticar?q=login" method="post">
+    <h1>Entrar</h1>
+    <input required type="email" name="email" placeholder="E-mail">
+    <input required type="password" name="senha" placeholder="Senha">
+    <input type="submit" value="Logar">
+    <a href="/autenticar?q=cadastrar">Não tem uma conta? Clique aqui</a>
+</form>
+{% elif action == 'cadastrar' %}
+<form action="/autenticar?q=cadastrar" method="post">
+    <h1>Cadastrar-se</h1>
+    <label for="nome">Nome:</label>
+    <input required type="text" name="nome" placeholder="Nome">
+    <label for="email">Email:</label>
+    <input required type="email" name="email" placeholder="E-mail">
+    <label for="senha">Senha:</label>
+    <input required type="password" name="senha" placeholder="Senha">
+    <label for="senhaConf">Confirme sua senha:</label>
+    <input required type="password" name="senhaConf" placeholder="Confirme a senha">
+    <input type="submit" value="Cadastrar">
+    <a href="/autenticar?q=login">Já tem uma conta? Clique aqui</a>
+</form>
+{% endif %}
 {% endblock %}

@@ -11,7 +11,7 @@ def criar():
         flash('Preencha todos os campos!')
         return redirect(url_for('index'))
     
-    tarefa = Tarefas(tar_titulo=titulo, tar_descricao=descricao, tar_user_id=session['user'], tar_status='pendente')
+    tarefa = Tarefas(tar_titulo=titulo, tar_descricao=descricao, tar_user_id=session['user'], tar_status='Pendente')
     
     db.session.add(tarefa)
     db.session.commit()

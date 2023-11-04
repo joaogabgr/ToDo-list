@@ -13,15 +13,15 @@ def autentica():
 
         if email == '' or senha == '':
             flash('Preencha todos os campos!')
-            return redirect(url_for('index'))
+            return redirect(url_for('autenticar', q='login'))
         
         if not Usuario.query.filter_by(user_email=email).first():
             flash('Email não cadastrado!')
-            return redirect(url_for('index'))
+            return redirect(url_for('autenticar', q='cadastar'))
         
         if not Usuario.query.filter_by(user_email=email, user_senha=senha).first():
             flash('Senha incorreta!')
-            return redirect(url_for('index'))
+            return redirect(url_for('autenticar', q='login'))
         
         session['user'] = Usuario.query.filter_by(user_email=email, user_senha=senha).first().user_id
         return redirect(url_for('index'))
@@ -34,15 +34,15 @@ def autentica():
 
         if nome == '' or email == '' or senha == '' or senhaConf == '':
             flash('Preencha todos os campos!')
-            return redirect(url_for('index'))
+            return redirect(url_for('cadastrar', q='cadastrar'))
         
         if Usuario.query.filter_by(user_email=email).first():
             flash('Email já cadastrado!')
-            return redirect(url_for('index'))
+            return redirect(url_for('cadastrar', q='cadastrar'))
         
         if senha != senhaConf:
             flash('Senhas não conferem!')
-            return redirect(url_for('index'))
+            return redirect(url_for('cadastrar', q='cadastrar'))
         
         user = Usuario(user_nome=nome, user_email=email, user_senha=senha)
 

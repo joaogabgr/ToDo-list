@@ -1,0 +1,124 @@
+form {
+    width: calc(100% - 20px);
+    display: flex;
+    flex-direction: column;
+    border-left: 6px solid var(--corFonte);
+    padding: 10px;
+    background-color: var(--corPrincipal);
+    border-radius: 0 10px 10px 0;
+}
+
+    form * {
+        margin: 5px 0;
+    }
+
+    form div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    form input, form textarea {
+        width: 300px;
+        height: 30px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 5px;
+        resize: none;
+    }
+
+
+    form input:focus, form textarea:focus {
+        outline: none;
+    }
+
+    form input[type="submit"] {
+        width: 310px;
+        height: 50px;
+        background-color: var(--corFonte);
+        border: 1px solid #b6ada6;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    form input[type="submit"]:hover {
+        background-color: var(--corHover);
+        border: 1px solid var(--corHover);
+    }
+
+    form select {
+        width: 150px;
+        height: 30px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 5px;
+        resize: none;
+    }
+
+    form a {
+        color: var(--corFonte);
+        font-size: 17px;
+    }
+
+    form a:hover {
+        color: var(--corHover);
+    }
+
+.tarefas {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+    .bloco {
+        background-color: var(--corPrincipal);
+        width: calc(100% - 20px);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: var(--marginTop);
+        padding: 10px;
+        border-radius: 0 10px 10px 0;
+        color: var(--corFonte);
+        border-left: 6px solid var(--corFonte);
+    }
+
+    .bloco:last-child {
+        margin-bottom: var(--marginTop);
+    }
+
+        .blocoTarefas {
+            display: flex;
+            flex-direction: column;
+            max-width: 80%;
+            word-wrap: break-word;
+        }
+
+            .blocoTarefas * {
+                margin: 5px 0;
+            }
+
+            .blocoTarefas .outline {
+                text-decoration: line-through;
+            }
+
+        .blocoAcoes {
+            display: flex;
+            flex-direction: column;
+        }
+
+            .blocoAcoes a {
+                color: var(--corFonte);
+                font-size: 18px;
+            }
+
+            .blocoAcoes a:first-child {
+                margin-bottom: 20px;
+            }
+
+            .blocoAcoes a:hover {
+                color: var(--corHover);
+            }
