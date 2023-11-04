@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block head %}
+{% endblock %}
+
+{% block main %}
+    <form action="/editar/{{ tarefa.tar_id }}" method="post">
+        <input type="text" name="titulo" id="titulo" placeholder="Titulo *" value="{{ tarefa.tar_titulo }}">
+        <input type="text" name="descricao" id="descricao" placeholder="Descricao" value="{{ tarefa.tar_descricao }}">
+        <select name="status" id="status">
+            <option value="Pendente">Pendente</option>
+            <option value="Em andamento">Em andamento</option>
+            <option value="Concluído">Concluído</option>
+        </select>
+        <input type="submit" value="Enviar">
+    </form>
+{% endblock %}

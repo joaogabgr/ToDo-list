@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block head %}
+{% endblock %}
+
+{% block main %}
+    {% if action == 'login' %}
+    <form action="/autenticar?q=login" method="post">
+        <input type="email" name="email" placeholder="E-mail">
+        <input type="password" name="senha" placeholder="Senha">
+        <input type="submit" value="Logar">
+    </form>
+    {% elif action == 'cadastrar' %}
+    <form action="/autenticar?q=cadastrar" method="post">
+        <input type="text" name="nome" placeholder="Nome">
+        <input type="email" name="email" placeholder="E-mail">
+        <input type="password" name="senha" placeholder="Senha">
+        <input type="password" name="senhaConf" placeholder="Confirme a senha">
+        <input type="submit" value="Cadastrar">
+    </form>
+    {% endif %}
+{% endblock %}

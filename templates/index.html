@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block head %}
+{% endblock %}
+
+{% block main %}
+    <form action="/criar" method="post">
+        <input type="text" name="titulo" id="titulo" placeholder="Titulo *">
+        <input type="text" name="descricao" id="descricao" placeholder="Descricao">
+        <input type="submit" value="Enviar">
+    </form>
+    {% for item in lista %}
+    <p>{{ item.tar_titulo }}</p>
+    <p>{{ item.tar_descricao }}</p>
+    <p>{{ item.tar_data }}</p>
+    <p>{{ item.tar_status }}</p>
+    <a href="/excluir/{{ item.tar_id }}"><i class="fa-solid fa-trash"></i></a>
+    <a href="/editar/{{ item.tar_id }}"><i class="fa-solid fa-pen-to-square"></i></a>
+    {% endfor %}
+{% endblock %}
