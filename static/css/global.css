@@ -58,6 +58,7 @@ main {
     display: flex;
     flex-direction: column;
     padding: var(--respiro);
+    align-items: center;
 }
 
 footer {

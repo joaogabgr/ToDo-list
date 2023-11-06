@@ -1,11 +1,12 @@
 form {
-    width: calc(100% - 20px);
+    width: 100%;
+    align-items: center;
     display: flex;
     flex-direction: column;
     border-left: 6px solid var(--corFonte);
-    padding: 10px;
+    border-right: 6px solid var(--corFonte);
     background-color: var(--corPrincipal);
-    border-radius: 0 10px 10px 0;
+    padding: 10px 0px;
 }
 
     form * {
@@ -71,19 +72,20 @@ form {
     display: flex;
     align-items: center;
     flex-direction: column;
+    width: 100%;
 }
 
     .bloco {
         background-color: var(--corPrincipal);
-        width: calc(100% - 20px);
         display: flex;
+        width: calc(100% - 20px);
+        padding: 10px;
         justify-content: space-between;
         align-items: center;
         margin-top: var(--marginTop);
-        padding: 10px;
-        border-radius: 0 10px 10px 0;
         color: var(--corFonte);
         border-left: 6px solid var(--corFonte);
+        border-right: 6px solid var(--corFonte);
     }
 
     .bloco:last-child {
